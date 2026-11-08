@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:clipToPadding="false" android:paddingBottom="16dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@color/primary"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:paddingTop="40dp" android:paddingBottom="20dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Find your next course" android:textColor="@color/white"
+                    android:textSize="24sp" android:textStyle="bold" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:hint="@string/search_courses"
+                    app:boxBackgroundColor="@color/white" app:startIconDrawable="@android:drawable/ic_menu_search">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSearch" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView style="@style/SectionTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/categories" />
+            <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:scrollbars="none" android:paddingStart="12dp" android:paddingEnd="12dp">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:singleLine="true"
+                    app:singleSelection="true" app:selectionRequired="true" />
+            </HorizontalScrollView>
+
+            <TextView android:id="@+id/tvFeaturedLabel" style="@style/SectionTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/featured_courses" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFeatured" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:clipToPadding="false"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <TextView style="@style/SectionTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/popular_courses" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopular" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:nestedScrollingEnabled="false"
+                android:paddingStart="4dp" android:paddingEnd="4dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar android:id="@+id/progress" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center"
+        android:visibility="gone" />
+</FrameLayout>
